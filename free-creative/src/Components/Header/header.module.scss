@@ -1,0 +1,67 @@
+header{
+    margin-bottom: 250px;
+}
+
+.headerInner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+
+    img{
+        margin-right: 20px;
+    }
+
+    p{
+        color: #fff;
+        font-size: 15px;
+    }
+}
+
+.headerNav{
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    .number{
+        color: #fff;
+
+        padding: 7px 27px;
+        border: 1px #fff solid; 
+        border-radius: 15px;
+
+        transition: all 0.2s ease;
+
+        &:hover{
+            transform: scale(1.02);
+            border: 0;
+            border-radius: 0;
+            border-bottom: 1px #fff solid;
+        }
+    }
+
+    .websites{
+        padding: 11px 14px;
+        border: 1px #fff solid; 
+        border-radius: 15px;
+
+        display: flex;
+        align-items: center;
+
+        transition: all 0.2s ease;
+
+        &:hover{
+            transform: scale(1.02);
+            border: 0;
+            border-radius: 0;
+            border-bottom: 1px #fff solid;
+        }
+    }
+
+    
+}

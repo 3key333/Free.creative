@@ -1,0 +1,55 @@
+.mainSection{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    min-height: 945px;
+    height: 100vh;
+}
+
+.mainSectionInner {
+    padding: 30px 280px;
+}
+
+.mainTitle{
+
+    h1{
+        font-size: 55px;
+        font-weight: 400;
+        line-height: 100%;
+
+        margin-bottom: 30px;
+    }
+
+    p{
+        font-size: 34px;
+        font-weight: 400;
+
+        margin-bottom: 65px;
+    }
+
+}
+
+.mainButtons{
+
+    button{
+        background-color: #fff;
+
+        padding: 23px 47px;
+
+        border: 0px;
+        border-radius: 40px;
+
+        &:first-of-type{
+            margin-right: 20px;
+        }
+
+        transition: all 0.3s ease;
+
+        &:hover{
+            border: 1px #111 solid;
+            background-color: #ffffff00;
+        }
+    }
+
+}
