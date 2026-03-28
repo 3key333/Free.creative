@@ -1,17 +1,38 @@
 import Header from '../Header/Header'
 import style from './mainSection.module.scss'
 import { imagesBg } from '../../dataForSlider'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import Portal from '../../Portal/portal'
+import { AppContext } from '../../Context/context'
 
 
 function MainSection () {
 
     const [ nameLink , setNameLink] = useState(0)
 
+    const {
+        isOpen, 
+        openPortal, 
+        closePortal, 
+        inputValueName, 
+        inputValuePhone, 
+        setInputValueName, 
+        setInputValuePhone
+    } = useContext(AppContext)
+
+    const [isChecked, setIsChecked] = useState(false)
+
+    const handleChecked = (event) => {
+        setIsChecked(event.target.checked)
+    }
+
+    const canSubmit = isChecked && inputValueName !== '' && inputValuePhone !== ''
+    
+
     useEffect(()=>{
 
         const id = setInterval(()=>{
-
+            
             setNameLink( (prev) => (prev + 1) % imagesBg.length) 
 
         }, 2000)
@@ -45,8 +66,42 @@ function MainSection () {
                         </div>
 
                         <div className={style.mainButtons}>
+
                             <button>Портфолио</button>
-                            <button>Оставить заявку</button>
+
+                            <button onClick={openPortal}>Оставить заявку</button>
+                            { isOpen ? (
+                                <Portal>
+                                    <>
+
+                                      <div className={style.portalTitle}>
+                                        <h2 className={style.portalTitleText}>Оставить заявку</h2>
+                                      </div>
+
+                                      <div className={style.portalInputs}>
+                                        <input type="text"  placeholder='Ваше Имя' value={inputValueName} onChange={(e)=>setInputValueName(e.target.value)}/>
+                                        <input type="text" placeholder='+7 (999) 999-99-99' value={inputValuePhone} onChange={(e)=>setInputValuePhone(e.target.value)}/>
+                                      </div>
+
+                                      <div className={style.portalCheckBox}>
+                                        <input type="checkbox" checked={isChecked} onChange={handleChecked}/>
+                                        <p>Я принимаю условия передачи персональных данных</p>
+                                      </div>
+
+                                      <div className={style.portalButton}>
+
+                                        <button
+                                         disabled={!canSubmit} 
+                                         onClick={closePortal} 
+                                         style={{backgroundColor: isChecked && inputValueName !== '' && inputValuePhone !== ''? 'rgba(43, 89, 195, 1)' : '#7c7979'}}>
+                                            Оставить заявку
+                                        </button>
+
+                                      </div>
+                                    </>
+                                </Portal>
+                            ) : null }
+
                         </div>
 
                     </div>

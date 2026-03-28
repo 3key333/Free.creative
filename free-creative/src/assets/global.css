@@ -10,3 +10,7 @@ body, html, #root{
 a{
     text-decoration: none;
 }
+
+h2, h1, p, a{
+    font-weight: 400;
+}
