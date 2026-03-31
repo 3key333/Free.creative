@@ -10,8 +10,8 @@ export default function ContextProvider({ children }) {
     const inputValueNameSave = localStorage.getItem('nameSave')
     const inputValuePhoneSave = localStorage.getItem('phoneSave')
 
-    const [inputValueName , setInputValueName] = useState(inputValueNameSave?inputValueNameSave:null)
-    const [inputValuePhone , setInputValuePhone] = useState(inputValuePhoneSave?inputValuePhoneSave:null)
+    const [inputValueName , setInputValueName] = useState(inputValueNameSave?inputValueNameSave:'')
+    const [inputValuePhone , setInputValuePhone] = useState(inputValuePhoneSave?inputValuePhoneSave:'')
     
     console.log(inputValueName)
 

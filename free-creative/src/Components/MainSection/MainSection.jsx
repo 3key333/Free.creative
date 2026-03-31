@@ -4,6 +4,7 @@ import { imagesBg } from '../../dataForSlider'
 import { useContext, useEffect, useState } from 'react'
 import Portal from '../../Portal/portal'
 import { AppContext } from '../../Context/context'
+import { useLocation, useNavigate} from 'react-router-dom'
 
 
 function MainSection () {
@@ -27,7 +28,11 @@ function MainSection () {
     }
 
     const canSubmit = isChecked && inputValueName !== '' && inputValuePhone !== ''
-    
+
+    const navigate = useNavigate()
+    const location = useLocation()    
+
+    if(location.pathname !== '/') return null
 
     useEffect(()=>{
 
@@ -67,7 +72,7 @@ function MainSection () {
 
                         <div className={style.mainButtons}>
 
-                            <button>Портфолио</button>
+                            <button onClick={()=>navigate('/portfolio')}>Портфолио</button>
 
                             <button onClick={openPortal}>Оставить заявку</button>
                             { isOpen ? (

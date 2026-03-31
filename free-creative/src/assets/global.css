@@ -5,6 +5,7 @@ body, html, #root{
     padding: 0;
 
     font-family: '20 Kopeek Book', sans-serif;
+    overflow-y: hidden;
 }
 
 a{
